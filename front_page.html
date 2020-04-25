@@ -12,11 +12,36 @@
 	<body>
 
 
-		<h1><img src="NFL_logo.jpg" height="100" width="100">Skills Player Stats</h1>
+		<h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
 
-		<p>This website provides statistics for NFL skills players for the 2019-2020 season.</p>
-
-
+		<h2>This website provides statistics for NFL skills players for the 2019-2020 season.</h2>
+		
+		<div id="box1">
+		<form>
+				
+				<input type="radio" name="input" onclick="enablePlayer()">Player Name
+				<input type="radio" name="input" onclick="enableTeam()">Team Name
+				<input type="radio" name="input" onclick="enablePosition()">Position
+				<br> 
+				<br>
+				
+				<input type="text" id="input" name="input" placeholder="(Patrick Mahomes) or (Chiefs)  or (Quarterback)" size="34">
+	
+				<input type="submit" value="Submit">
+				
+		</form>
+		</div>
+		
+		<h2>How to search the database:</h2>
+		
+		<p>1. Select the category (player name, team name, or position) of your inquiry.
+		<br>2. Enter your inquiry in the text box.</p>
+		
+		<h2>Results:</h2>
+		<p>If a player name is entered, the player's statistics will be displayed
+		<br>If a team name is entered, the statistics for every player on the team will be displayed.
+		<br>If a position is entered, the statistics for every player in that position will be displayed.</p>
+		
 	</body>
 
 

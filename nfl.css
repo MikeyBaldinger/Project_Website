@@ -1,8 +1,30 @@
 h1 {
+	font-family: impact, charcoal, sans-serif;
 	color: red;
 	font-size: 75px;
+	outline: 4px solid blue;
+}
+
+h2 {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 28px;
 }
 
 p {
+	font-family: impact, charcoal, sans-serif;
 	font-size: 24px;
+}
+
+form {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
+	box-sizing: border-box;
+}
+
+#box1 {
+	box-sizing: border-box;
+	width: 475px;
+	height: 100px;
+	padding: 5px;
+	border: 5px solid black;
 }
