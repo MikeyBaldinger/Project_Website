@@ -1,8 +1,8 @@
 h1 {
 	font-family: impact, charcoal, sans-serif;
-	color: red;
+	color: crimson;
 	font-size: 75px;
-	outline: 4px solid blue;
+	outline: 4px solid darkblue;
 }
 
 h2 {
@@ -10,9 +10,24 @@ h2 {
 	font-size: 28px;
 }
 
+h3 {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 22px;
+}
+
 p {
 	font-family: impact, charcoal, sans-serif;
 	font-size: 24px;
+}
+
+ul {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
+}
+
+ol {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
 }
 
 form {

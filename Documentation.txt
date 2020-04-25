@@ -1,0 +1,30 @@
+Documentation
+
+1. w3schools.com
+
+	- We learned how to implement different fonts in CSS.  This allowed us to change the font-family of our website.
+	- We learned how to create an ordered and unordered list in HTML.  This allowed to us to create an ordered and unordered list on our website.
+	- We learned how to create a radio button in an HTML form.  This allowed us to create the radio buttons for our search categories.
+	- We learned how to create a placeholder in a text box.  This allowed us to create a placeholder in our search text box.
+	- We learned how to create an outline in CSS.  This allowed us to make a header around our website's title.
+	- We learned how to utilize box-sizing in CSS.  This allowed us to create a box around our website's search area.
+	
+2. https://www.stickpng.com/img/icons-logos-emojis/iconic-brands/nfl-logo
+
+	- We used this website to find NFL_logo.jpg, which we used in our website header.
+	
+3. http://www.colors.commutercreative.com/grid/
+	
+	- We used this website to learn different color names in CSS.  This allowed us to change the color of our website's title and it's outline.
+	
+4. I referenced my HTML and CSS assignment.
+	
+	- I recalled how to change the height and width of an image.  We used this to manipulate the size of NFL_logo.jpg.
+
+5. I referenced my Web Development PEX.
+
+	- I recall how to link a CSS file to an HTML file.  We used this to connect nfl.css to main.html.
+	- I recalled how to embed an image in HTML.  We used this to embed NFL_logo.jpg in main.html.
+	- I recalled how to create an an HTML form.  We used this to create our database search form.
+	- I recalled how to format a CSS file.  We used this to create nfl.css.
+	

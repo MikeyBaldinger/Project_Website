@@ -5,23 +5,22 @@
 		<link rel="stylesheet" href="nfl.css" />
 
 		<meta charset="utf-8">
-		<title>NFL Skills Player Database</title>
+		<title>NFL Skill Players Database</title>
 
 	</head>
 
 	<body>
 
-
 		<h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
 
-		<h2>This website provides statistics for NFL skills players for the 2019-2020 season.</h2>
+		<h2>This NFL Skill Players Database provides statistics for NFL skill players for the 2019-2020 season.</h2>
 		
 		<div id="box1">
 		<form>
 				
-				<input type="radio" name="input" onclick="enablePlayer()">Player Name
-				<input type="radio" name="input" onclick="enableTeam()">Team Name
-				<input type="radio" name="input" onclick="enablePosition()">Position
+				<input type="radio" id="playerName" name="category">Player Name
+				<input type="radio" id="teamName" name="category">Team Name
+				<input type="radio" id="position"  name="category">Position
 				<br> 
 				<br>
 				
@@ -32,17 +31,22 @@
 		</form>
 		</div>
 		
-		<h2>How to search the database:</h2>
+		<h3>How to search the database:</h3>
 		
-		<p>1. Select the category (player name, team name, or position) of your inquiry.
-		<br>2. Enter your inquiry in the text box.</p>
+		<ol>
+		<li>Select the category (Player Name, Team Name, Position) of your inquiry.</li>
+		<li>Enter your inquiry in the text box.</li>
+		<li>Press the Search button.</li>
+		</ol>
 		
-		<h2>Results:</h2>
-		<p>If a player name is entered, the player's statistics will be displayed
-		<br>If a team name is entered, the statistics for every player on the team will be displayed.
-		<br>If a position is entered, the statistics for every player in that position will be displayed.</p>
+		<h3>Results:</h3>
+		
+		<ul>
+			<li>If a player name is entered, the player's statistics will be displayed.</li>
+			<li>If a team name is entered, the statistics for every player on the team will be displayed.</li>
+			<li>If a position is entered, the statistics for every player in that position will be displayed.</li>
+		</ul>
 		
 	</body>
-
 
 </html>
