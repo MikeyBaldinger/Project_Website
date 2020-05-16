@@ -8,7 +8,7 @@ $password = "CompSci364";
 $conn = new mysqli($servername, $username, $password);
 //Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->conn_error)
+  die("Connection failed: " . $conn->connect_error);
 }
 
 //Create Database
@@ -119,13 +119,13 @@ CREATE TABLE Tightend (
 SQL;
 
 // normally only a single query is executed, but batch table creation
-$connection->multi_query($tables)
-    or die("Error: ".$connection->error);
+$conn->multi_query($tables)
+    or die("Error: ".$conn->error);
 
 // ensure that all the queries executed correctly
-while ($connection->more_results())
-  if (! $connection->next_result())
-    echo "Error: ".$connection->error."\n";
+while ($conn->more_results())
+  if (! $conn->next_result())
+    echo "Error: ".$conn->error."\n";
 
 $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
@@ -149,10 +149,10 @@ $data = array(
 );
 
 foreach ($data as $query) {
-  if (! $connection->query($query))
-    echo "Error: ".$connection->error."\n";
+  if (! $conn->query($query))
+    echo "Error: ".$conn=->error."\n";
 }
 
-$connection->close();
+$conn=->close();
 
 // closing PHP tag intentionally omitted
