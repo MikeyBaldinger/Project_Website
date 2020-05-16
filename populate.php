@@ -1,11 +1,23 @@
 <?php
 
+$servername = "localhost";
 $username = "student";
 $password = "CompSci364";
-$database = "student";
+//$database = "student";
 
-$connection = new mysqli("localhost", $username, $password,
-                         $database);
+$conn = new mysqli($servername, $username, $password);
+//Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->conn_error)
+}
+
+//Create Database
+$sql = "CREATE DATABASE NFLstats";
+if ($conn->query($sql) === TRUE) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating database: " . $conn->error;
+}
 
 $tables = <<<SQL
 DROP TABLE IF EXISTS Team;
