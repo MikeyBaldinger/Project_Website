@@ -122,7 +122,7 @@ while ($conn->more_results())
 $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
       "('Chiefs', 'Kansas City', 'Andy Reid', 12, 4, 0), ".
-      "('49ers', 'San Francisco', 'Kyle Shanahan', '13', '3', '0');",
+      "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0);",
 /*
   "INSERT INTO Position (abbreviation) VALUES ".
       "('QB'), ".
@@ -136,18 +136,6 @@ $data = array(
   "INSERT INTO Roster (player_name, team_name) VALUES ".
       "('Patrick Mahomes', 'Chiefs'), ".
       "('Jimmy Garappolo', '49ers');",
-*/
-/*
-  "INSERT INTO Author (id, surname, given_name) VALUES ".
-      "(52258, 'Gillenson', 'Mark'), ".
-      "(15396, 'Silberschatz', 'Avi'), ".
-      "(16617, 'Korth', 'Henry F.'), ".
-      "(184154, 'Sudarshan', 'S.');",
-  "INSERT INTO Writes (author_id, isbn) VALUES ".
-      "(15396, '9780073523323'), ".
-      "(16617, '9780073523323'), ".
-      "(184154, '9780073523323'), ".
-      "(52258, '9780470624708');",
 */
 );
 
