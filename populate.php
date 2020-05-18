@@ -3,20 +3,12 @@
 $servername = "localhost";
 $username = "student";
 $password = "CompSci364";
-//$database = "student";
+$database = "student";
 
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $database);
 //Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
-}
-
-//Create Database
-$sql = "CREATE DATABASE NFLstats";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
 }
 
 $tables = <<<SQL
@@ -38,6 +30,12 @@ CREATE TABLE Team (
   ties INTEGER,
 
   PRIMARY KEY (team_name)
+);
+
+CREATE TABLE Position (
+  abbreviation CHARACTER VARYING(2) NOT NULL,
+
+  PRIMARY KEY (abbreviation)
 );
 
 CREATE TABLE Player (
@@ -62,12 +60,6 @@ CREATE TABLE Roster (
       ON UPDATE CASCADE ON DELETE RESTRICT,
   FOREIGN KEY (team_name) REFERENCES Team (team_name)
       ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE Position (
-  abbreviation CHARACTER VARYING(2) NOT NULL,
-
-  PRIMARY KEY (abbreviation)
 );
 
 CREATE TABLE Quarterback (
@@ -131,9 +123,20 @@ $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
       "('Chiefs', 'Kansas City', 'Andy Reid', 12, 4, 0), ".
       "('49ers', 'San Francisco', 'Kyle Shanahan', '13', '3', '0');",
+/*
+  "INSERT INTO Position (abbreviation) VALUES ".
+      "('QB'), ".
+      "('QB');",
   "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro) VALUES ".
       "('Patrick Mahomes', 15, '6-3', 230, 3), ".
       "('Jimmy Garappolo', 10, '6-2', 225, 5);",
+  "INSERT INTO Quarterback (abbbreviation, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
+      "('QB', 5000, 50, 10, 158.3), ".
+      "('QB', 1000, 1, 5, 10);",
+  "INSERT INTO Roster (player_name, team_name) VALUES ".
+      "('Patrick Mahomes', 'Chiefs'), ".
+      "('Jimmy Garappolo', '49ers');",
+*/
 /*
   "INSERT INTO Author (id, surname, given_name) VALUES ".
       "(52258, 'Gillenson', 'Mark'), ".
@@ -150,9 +153,9 @@ $data = array(
 
 foreach ($data as $query) {
   if (! $conn->query($query))
-    echo "Error: ".$conn=->error."\n";
+    echo "Error: ".$conn->error."\n";
 }
 
-$conn=->close();
+$conn->close();
 
 // closing PHP tag intentionally omitted
