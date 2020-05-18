@@ -12,14 +12,14 @@ if ($conn->connect_error) {
 }
 
 $tables = <<<SQL
-DROP TABLE IF EXISTS Team;
-DROP TABLE IF EXISTS Player;
-DROP TABLE IF EXISTS Roster;
-DROP TABLE IF EXISTS Position;
 DROP TABLE IF EXISTS Quarterback;
 DROP TABLE IF EXISTS Runningback;
 DROP TABLE IF EXISTS Widereceiver;
 DROP TABLE IF EXISTS Tightend;
+DROP TABLE IF EXISTS Roster;
+DROP TABLE IF EXISTS Team;
+DROP TABLE IF EXISTS Player;
+DROP TABLE IF EXISTS Position;
 
 CREATE TABLE Team (
   team_name CHARACTER VARYING(50) NOT NULL,
@@ -63,48 +63,48 @@ CREATE TABLE Roster (
 );
 
 CREATE TABLE Quarterback (
-  abbreviation CHARACTER VARYING(2) NOT NULL,
+  player_name CHARACTER VARYING(50) NOT NULL,
   pass_yards INTEGER NOT NULL,
   pass_tds INTEGER NOT NULL,
   interceptions INTEGER NOT NULL,
-  qb_rating NUMERIC(1) NOT NULL,
+  qb_rating NUMERIC(4,1) NOT NULL,
 
-  PRIMARY KEY (abbreviation),
-  FOREIGN KEY (abbreviation) REFERENCES Position (abbreviation)
+  PRIMARY KEY (player_name),
+  FOREIGN KEY (player_name) REFERENCES Player (player_name)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Runningback (
-  abbreviation CHARACTER VARYING(2) NOT NULL,
+  player_name CHARACTER VARYING(50) NOT NULL,
   rush_yards INTEGER NOT NULL,
   touchdowns INTEGER NOT NULL,
   fumbles INTEGER NOT NULL,
   carries INTEGER NOT NULL,
 
-  PRIMARY KEY (abbreviation),
-  FOREIGN KEY (abbreviation) REFERENCES Position (abbreviation)
+  PRIMARY KEY (player_name),
+  FOREIGN KEY (player_name) REFERENCES Player (player_name)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Widereceiver (
-  abbreviation CHARACTER VARYING(2) NOT NULL,
+  player_name CHARACTER VARYING(50) NOT NULL,
   rec_yards INTEGER NOT NULL,
   rec_tds INTEGER NOT NULL,
   receptions INTEGER NOT NULL,
 
-  PRIMARY KEY (abbreviation),
-  FOREIGN KEY (abbreviation) REFERENCES Position (abbreviation)
+  PRIMARY KEY (player_name),
+  FOREIGN KEY (player_name) REFERENCES Player (player_name)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Tightend (
-  abbreviation CHARACTER VARYING(2) NOT NULL,
+  player_name CHARACTER VARYING(50) NOT NULL,
   rec_yards INTEGER NOT NULL,
   rec_tds INTEGER NOT NULL,
   receptions INTEGER NOT NULL,
 
-  PRIMARY KEY (abbreviation),
-  FOREIGN KEY (abbreviation) REFERENCES Position (abbreviation)
+  PRIMARY KEY (player_name),
+  FOREIGN KEY (player_name) REFERENCES Player (player_name)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
@@ -123,20 +123,19 @@ $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
       "('Chiefs', 'Kansas City', 'Andy Reid', 12, 4, 0), ".
       "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0);",
-/*
   "INSERT INTO Position (abbreviation) VALUES ".
       "('QB'), ".
-      "('QB');",
-  "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro) VALUES ".
-      "('Patrick Mahomes', 15, '6-3', 230, 3), ".
-      "('Jimmy Garappolo', 10, '6-2', 225, 5);",
-  "INSERT INTO Quarterback (abbbreviation, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
-      "('QB', 5000, 50, 10, 158.3), ".
-      "('QB', 1000, 1, 5, 10);",
+      "('RB');",
+  "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
+      "('Patrick Mahomes', 15, '6-3', 230, 3, 'QB'), ".
+      "('Jimmy Garappolo', 10, '6-2', 225, 5, 'QB');",
+
+  "INSERT INTO Quarterback (player_name, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
+      "('Patrick Mahomes', 5000, 50, 10, 158.3), ".
+      "('Jimmy Garappolo', 1000, 1, 5, 10);",
   "INSERT INTO Roster (player_name, team_name) VALUES ".
       "('Patrick Mahomes', 'Chiefs'), ".
       "('Jimmy Garappolo', '49ers');",
-*/
 );
 
 foreach ($data as $query) {
