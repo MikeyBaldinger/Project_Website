@@ -30,6 +30,32 @@
     <h2>Stats</h2>
 
     <ul>
+	
+	<?php 
+		$thisquery = "SELECT * ".
+					  "FROM Player".
+					  "WHERE player_name LIKE '%"Patrick Mahomes"%,";
+		 $player_results = $connection->query($thisquery);
+      while ($player = $player_results->fetch_assoc()) {
+        $name = $player['player_name'];
+        $number = $player['player_num'];
+        $height = $player['height'];
+        $weight = $player['weight'];
+        $yrsPro = $player['yrs_pro'];
+        $abbreviation = $player['abbreviation'];
+     ?>
+
+       <li><?php echo "$name, $number, $height".
+                      "$weight, $yrsPro", "$abbreviation"; ?></li>
+	  <?php
+      }
+     ?>
+    </ul>
+	
+	After test...
+	<ul>
+		
+	Updated: <?php echo $_POST["input"]; ?>
     <?php
       $query = "SELECT * ".
                "FROM Team";
