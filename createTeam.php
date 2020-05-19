@@ -31,5 +31,24 @@
 			</div>
     </div>
 
+    <h2>Create a Team</h2>
+
+    <form class="newteam" id="newteam" action="populate.php" method="post"
+          onsubmit="return checkForm();">
+      <label for="tname">Team Name</label>
+      <input type="text" name="tname" id="tname" required /><br />
+      <label for="city">Hometown</label>
+      <input type="text" name="city" id="city" required /><br />
+      <label for="coach">Coach Name</label>
+      <input type="text" name="coach" id="coach" required /><br />
+      <label for="wins">Wins</label>
+      <input type="number" name="wins" id="wins" min="0" max="16" required /><br />
+      <label for="losses">Losses</label>
+      <input type="number" name="losses" id="losses" min="0" max="16" required /><br />
+      <label for="ties">Draws</label>
+      <input type="number" name="ties" id="ties" min="0" max="16" required /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
   </body>
 </html>

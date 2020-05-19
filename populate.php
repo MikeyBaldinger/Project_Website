@@ -110,6 +110,13 @@ CREATE TABLE Tightend (
 
 SQL;
 
+$tname = $_POST["tname"];
+$city = $_POST["city"];
+$coach = $_POST["coach"];
+$wins = $_POST["wins"];
+$losses = $_POST["losses"];
+$ties = $_POST["ties"];
+
 // normally only a single query is executed, but batch table creation
 $conn->multi_query($tables)
     or die("Error: ".$conn->error);
@@ -122,7 +129,8 @@ while ($conn->more_results())
 $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
       "('Chiefs', 'Kansas City', 'Andy Reid', 12, 4, 0), ".
-      "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0);",
+      "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0), ".
+      "('$tname', '$city', '$coach', '$wins', '$losses', '$ties');",
   "INSERT INTO Position (abbreviation) VALUES ".
       "('QB'), ".
       "('RB');",
