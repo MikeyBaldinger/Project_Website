@@ -1,13 +1,10 @@
 <?php
-
   $username = "student";
   $password = "CompSci364";
   $database = "student";
-
   $connection = new mysqli("localhost", $username, $password,
                          $database);
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -20,42 +17,13 @@
   <body>
 
     <h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
-
     <div class="topnav">
       <a href="main.html">Home</a>
       <a href="about.html">About</a>
       <a class="active" href="stats.php">Stats</a>
     </div>
-
     <h2>Stats</h2>
-
     <ul>
-	<?php
-    $n = 'Patrick Mahomes';
-		$thisquery = "SELECT * ".
-                 "FROM Player".
-                 "WHERE player_name LIKE '%"Patrick Mahomes"%,";
-		 $player_results = $connection->query($thisquery);
-      while ($player = $player_results->fetch_assoc()) {
-        $name = $player['player_name'];
-        $number = $player['player_num'];
-        $height = $player['height'];
-        $weight = $player['weight'];
-        $yrsPro = $player['yrs_pro'];
-        $abbreviation = $player['abbreviation'];
-     ?>
-
-       <li><?php echo "$name, $number, $height".
-                      "$weight, $yrsPro", "$abbreviation"; ?></li>
-	  <?php
-      }
-     ?>
-    </ul>
-
-	After test...
-	<ul>
-
-	Updated: <?php echo $_POST["input"]; ?>
     <?php
       $query = "SELECT * ".
                "FROM Team";
@@ -67,14 +35,34 @@
         $wins = $team['wins'];
         $losses = $team['losses'];
         $ties = $team['ties'];
-     ?>
 
+     ?>
        <li><?php echo "$name, $city, $coach".
                       "$wins, $losses", "$ties"; ?></li>
     <?php
       }
      ?>
-    </ul>
 
+
+
+    <?php
+
+      $user_input = $_POST["input"];
+
+      $query = "SELECT * ".
+               "FROM Player ".
+	       "WHERE player_name = '$user_input' ";
+      $player_results = $connection->query($query);
+      while ($player = $player_results->fetch_assoc()) {
+        $p_name = $player['player_name'];
+	$num = $player['player_num'];
+
+     ?>
+       <li><?php echo "$p_name, $num"; ?></li>
+    <?php
+      }
+     ?>
+
+    </ul>
    </body>
 </html>
