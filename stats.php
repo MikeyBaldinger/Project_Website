@@ -17,11 +17,22 @@
   <body>
 
     <h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
+
     <div class="topnav">
       <a href="main.html">Home</a>
       <a href="about.html">About</a>
       <a class="active" href="stats.php">Stats</a>
+			<div class="dropdown">
+				<button class="dbutton" name="dbutton">Create
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dcontent">
+					<a href="createPlayer.php">Player</a>
+					<a href="createTeam.php">Team</a>
+				</div>
+			</div>
     </div>
+
     <h2>Stats</h2>
     <ul>
     <?php
