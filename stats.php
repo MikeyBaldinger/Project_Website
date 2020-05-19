@@ -11,6 +11,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+  <head>
+    <meta charset="utf-8">
+    <title>stats</title>
+    <link rel="stylesheet" href="nfl.css" />
+  </head>
+
   <body>
 
     <h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
