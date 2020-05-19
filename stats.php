@@ -30,11 +30,11 @@
     <h2>Stats</h2>
 
     <ul>
-	
-	<?php 
+	<?php
+    $n = 'Patrick Mahomes';
 		$thisquery = "SELECT * ".
-					  "FROM Player".
-					  "WHERE player_name LIKE '%"Patrick Mahomes"%,";
+                 "FROM Player".
+                 "WHERE player_name LIKE '%"Patrick Mahomes"%,";
 		 $player_results = $connection->query($thisquery);
       while ($player = $player_results->fetch_assoc()) {
         $name = $player['player_name'];
@@ -51,10 +51,10 @@
       }
      ?>
     </ul>
-	
+
 	After test...
 	<ul>
-		
+
 	Updated: <?php echo $_POST["input"]; ?>
     <?php
       $query = "SELECT * ".
