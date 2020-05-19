@@ -49,7 +49,7 @@
 
      ?>
        <li><?php echo "$name, $city, $coach".
-                      "$wins, $losses", "$ties"; ?></li>
+                      "$wins, $losses, $ties"; ?></li>
     <?php
       }
      ?>
