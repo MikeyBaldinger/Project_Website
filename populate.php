@@ -128,14 +128,14 @@ $data = array(
       "('RB');",
   "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
       "('Patrick Mahomes', 15, '6-3', 230, 3, 'QB'), ".
-      "('Jimmy Garappolo', 10, '6-2', 225, 5, 'QB');",
+      "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB');",
 
   "INSERT INTO Quarterback (player_name, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
       "('Patrick Mahomes', 5000, 50, 10, 158.3), ".
-      "('Jimmy Garappolo', 1000, 1, 5, 10);",
+      "('Jimmy Garoppolo', 1000, 1, 5, 10);",
   "INSERT INTO Roster (player_name, team_name) VALUES ".
       "('Patrick Mahomes', 'Chiefs'), ".
-      "('Jimmy Garappolo', '49ers');",
+      "('Jimmy Garoppolo', '49ers');",
 );
 
 foreach ($data as $query) {
