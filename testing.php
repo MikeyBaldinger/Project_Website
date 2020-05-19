@@ -12,9 +12,18 @@
 <html lang="en" dir="ltr">
 
   <body>
-     <h2>Stats</h2>
 
-     <ul>
+    <h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
+
+    <div class="topnav">
+      <a href="main.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" href="stats.php">Stats</a>
+    </div>
+
+    <h2>Stats</h2>
+
+    <ul>
     <?php
       $query = "SELECT * ".
                "FROM Team";
