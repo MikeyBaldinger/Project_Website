@@ -156,14 +156,22 @@ if (isset($_POST['tname']))  {
 	$wins = $_POST["wins"];
 	$losses = $_POST["losses"];
 	$ties = $_POST["ties"];
-	$teaminsert = "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ('$tname', '$city', '$coach', '$wins', '$losses', '$ties') ";
+	$teaminsert = array( "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ('$tname', '$city', '$coach', '$wins', '$losses', '$ties'); ",);
+	foreach ($teaminsert as $query) {
+  		if (! $conn->query($query)) {
+    			echo "Error: ".$conn->error."\n";
+  		}
+	}
+
 }
-if ($conn->query($team_insert) === TRUE) {
+/*
+	if ($conn->query($team_insert) == TRUE) {
   echo "New record created successfully";
 } else {
   echo "Error: " . $team_insert . "<br>" . $conn->error;
 }
-
+*/
+/*
 //variables when new player is created
 if (isset($_POST['pname']))  {
 	$pname = $_POST["pname"];
@@ -171,15 +179,15 @@ if (isset($_POST['pname']))  {
 	$height = $_POST["height"];
 	$weight = $_POST["weight"];
 	$pos = $_POST["pos"];
-	player_insert = "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos')";
+	$player_insert = "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos')";
 }
 
-if ($conn->query($player_insert) === TRUE) {
+if ($conn->query($player_insert) == TRUE) {
   echo "New record created successfully";
 } else {
   echo "Error: " . $player_insert . "<br>" . $conn->error;
 }
-
+*/
 $conn->close();
 
 // closing PHP tag intentionally omitted
