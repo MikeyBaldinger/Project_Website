@@ -127,7 +127,6 @@ $data = array(
 	"('Patriots', 'New England', 'Bill Belichick', 12, 4, 0), ".
 	"('Vikings', 'Minnesota', 'Mike Zimmer', 10, 6, 0), ".
 	"('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0); ",
-	/*"('$tname', '$city', '$coach', '$wins', '$losses', '$ties');",*/
 "INSERT INTO Position (abbreviation) VALUES ".
 	"('QB'), ".
     "('RB'), ".
@@ -159,7 +158,6 @@ $data = array(
 	"('Raheem Mostert', 31, '5-10', 205, 6, 'RB'), ".
 	"('Emanuel Sanders', 17, '5-11', 180, 11, 'WR'), ".
 	"('George Kittle', 85, '6-4', 250, 4, 'TE');",
-    /*"('$pname', '$num', '$height', '$weight', 0, '$pos');",*/
 "INSERT INTO Quarterback (player_name, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
     "('Patrick Mahomes', 4031, 26, 5, 105.3), ".
 	"('Carson Wentz', 4039, 27, 7, 93.1), ".
@@ -218,46 +216,6 @@ foreach ($data as $query) {
   }
 }
 
-//variables when new team is created
-if (isset($_POST['tname']))  {
-	$tname = $_POST["tname"];
-	$city = $_POST["city"];
-	$coach = $_POST["coach"];
-	$wins = $_POST["wins"];
-	$losses = $_POST["losses"];
-	$ties = $_POST["ties"];
-	$teaminsert = array( "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ('$tname', '$city', '$coach', '$wins', '$losses', '$ties'); ",);
-	foreach ($teaminsert as $query) {
-  		if (! $conn->query($query)) {
-    			echo "Error: ".$conn->error."\n";
-  		}
-	}
-
-}
-/*
-	if ($conn->query($team_insert) == TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $team_insert . "<br>" . $conn->error;
-}
-*/
-/*
-//variables when new player is created
-if (isset($_POST['pname']))  {
-	$pname = $_POST["pname"];
-	$num = $_POST["num"];
-	$height = $_POST["height"];
-	$weight = $_POST["weight"];
-	$pos = $_POST["pos"];
-	$player_insert = "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos')";
-}
-
-if ($conn->query($player_insert) == TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $player_insert . "<br>" . $conn->error;
-}
-*/
 $conn->close();
 
 // closing PHP tag intentionally omitted

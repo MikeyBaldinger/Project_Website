@@ -2,7 +2,7 @@
   $username = "student";
   $password = "CompSci364";
   $database = "student";
-  $connection = new mysqli("localhost", $username, $password,
+  $conn = new mysqli("localhost", $username, $password,
                          $database);
 ?>
 
@@ -33,8 +33,8 @@
 
     <h2>Create a Player</h2>
 
-    <form class="newplayer" id="newplayer" action="populate.php" method="post"
-          onsubmit="return checkForm();">
+    <form class="newplayer" id="newplayer" action="createPlayer.php" method="post"
+          onsubmit="main.html">
       <label for="pname">Player Name</label>
       <input type="text" name="pname" id="pname" required /><br />
       <label for="tname">Team Name</label>
@@ -52,3 +52,24 @@
 
   </body>
 </html>
+
+<?php
+
+//variables when new player is created
+if (isset($_POST['pname']))  {
+	$pname = $_POST["pname"];
+	$num = $_POST["num"];
+	$height = $_POST["height"];
+	$weight = $_POST["weight"];
+	$pos = $_POST["pos"];
+	$player_insert = array( "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos'); ",);
+	foreach ($player_insert as $query) {
+  		if (! $conn->query($query)) {
+    			echo "Error: ".$conn->error."\n";
+  		}
+	}
+}
+
+$conn->close();
+
+?>
