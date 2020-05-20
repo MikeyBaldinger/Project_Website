@@ -126,7 +126,7 @@
 	  }
      ?>
 	 
-	   <?php
+	 <?php
 
       $user_input = $_POST["input"];
 
@@ -150,6 +150,62 @@
 	Touchdowns: <?php echo "$touchdowns"; ?> <br>
 	Fumbles: <?php echo "$fumbles"; ?> <br>
 	Carries: <?php echo "$carries"; ?> <br>
+	
+    <?php
+      }
+	  }
+     ?>
+	 
+	 <?php
+
+      $user_input = $_POST["input"];
+
+      $query = "SELECT * ".
+               "FROM Widereceiver ".
+	       "WHERE player_name = '$user_input' ";
+      $wr_results = $connection->query($query);
+	  if ($wr_results->num_rows > 0)
+	  {
+		  while ($wr = $wr_results->fetch_assoc()) {
+        $p_name = $wr['player_name'];
+		$rec_yds = $wr['rec_yards'];
+		$rec_tds = $wr['rec_tds'];
+		$receptions = $wr['receptions'];
+     ?>
+	 
+	<br>
+	2019-2020 Stats <br>
+	Receiving Yards: <?php echo "$rec_yds"; ?> <br>
+	Receiving Touchdowns: <?php echo "$rec_tds"; ?> <br>
+	Receptions: <?php echo "$receptions"; ?> <br>
+	
+    <?php
+      }
+	  }
+     ?>
+	 
+	 <?php
+
+      $user_input = $_POST["input"];
+
+      $query = "SELECT * ".
+               "FROM Tightend ".
+	       "WHERE player_name = '$user_input' ";
+      $te_results = $connection->query($query);
+	  if ($te_results->num_rows > 0)
+	  {
+		  while ($te = $te_results->fetch_assoc()) {
+        $p_name = $te['player_name'];
+		$rec_yds = $te['rec_yards'];
+		$rec_tds = $te['rec_tds'];
+		$receptions = $te['receptions'];
+     ?>
+	 
+	<br>
+	2019-2020 Stats <br>
+	Receiving Yards: <?php echo "$rec_yds"; ?> <br>
+	Receiving Touchdowns: <?php echo "$rec_tds"; ?> <br>
+	Receptions: <?php echo "$receptions"; ?> <br>
 	
     <?php
       }
