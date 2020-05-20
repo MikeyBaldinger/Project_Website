@@ -141,7 +141,9 @@ $data = array(
       "('$tname', '$city', '$coach', '$wins', '$losses', '$ties');",
   "INSERT INTO Position (abbreviation) VALUES ".
       "('QB'), ".
-      "('RB');",
+      "('RB'), ".
+      "('WR'), ".
+      "('TE');",
   "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
       "('Patrick Mahomes', 15, '6-3', 230, 3, 'QB'), ".
       "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB'), ".
@@ -151,7 +153,8 @@ $data = array(
       "('Jimmy Garoppolo', 1000, 1, 5, 10);",
   "INSERT INTO Roster (player_name, team_name) VALUES ".
       "('Patrick Mahomes', 'Chiefs'), ".
-      "('Jimmy Garoppolo', '49ers');",
+      "('Jimmy Garoppolo', '49ers'), ".
+      "('$pname', '$tname');",
 );
 
 foreach ($data as $query) {

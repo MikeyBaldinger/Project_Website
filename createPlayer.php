@@ -37,6 +37,8 @@
           onsubmit="return checkForm();">
       <label for="pname">Player Name</label>
       <input type="text" name="pname" id="pname" required /><br />
+      <label for="tname">Team Name</label>
+      <input type="text" name="tname" id="tname" required /><br />
       <label for="num">Player Number</label>
       <input type="number" name="num" id="num" min="0" max="99" required /><br />
       <label for="height">Height (ft-in)</label>
