@@ -142,6 +142,12 @@ $data = array(
       /*"('$pname', '$tname');",*/
 );
 
+foreach ($data as $query) {
+  if (! $conn->query($query)) {
+    echo "Error: ".$conn->error."\n";
+  }
+}
+
 //variables when new team is created
 if (isset($_POST['tname']))  {
 	$tname = $_POST["tname"];
@@ -150,10 +156,12 @@ if (isset($_POST['tname']))  {
 	$wins = $_POST["wins"];
 	$losses = $_POST["losses"];
 	$ties = $_POST["ties"];
-	$data = array(
-	  "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
-	    "('$tname', '$city', '$coach', '$wins', '$losses', '$ties'); ",
-	);
+	$teaminsert = "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ('$tname', '$city', '$coach', '$wins', '$losses', '$ties') ";
+}
+if ($conn->query($team_insert) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $team_insert . "<br>" . $conn->error;
 }
 
 //variables when new player is created
@@ -163,15 +171,13 @@ if (isset($_POST['pname']))  {
 	$height = $_POST["height"];
 	$weight = $_POST["weight"];
 	$pos = $_POST["pos"];
-	$data = array(
-	  "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
-	    "('$pname', '$num', '$height', '$weight', 0, '$pos'); ",
-	);
+	player_insert = "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos')";
 }
 
-foreach ($data as $query) {
-  if (! $conn->query($query))
-    echo "Error: ".$conn->error."\n";
+if ($conn->query($player_insert) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $player_insert . "<br>" . $conn->error;
 }
 
 $conn->close();
