@@ -34,26 +34,32 @@
     </div>
 
     <h2>Stats</h2>
-    <ul>
-    <?php
-      $query = "SELECT * ".
-               "FROM Team";
-      $team_results = $connection->query($query);
-      while ($team = $team_results->fetch_assoc()) {
-        $name = $team['team_name'];
-        $city = $team['city'];
-        $coach = $team['coach'];
-        $wins = $team['wins'];
-        $losses = $team['losses'];
-        $ties = $team['ties'];
+  <ul>
+	 
+	 <?php
+
+      $team_input = $_POST["input"];
+
+      $team_query = "SELECT * ".
+               "FROM Team ".
+	       "WHERE team_name = '$team_input' ";
+      $team_results = $connection->query($team_query);
+	  if ($team_results->num_rows > 0)
+	  {
+		  while ($team = $team_results->fetch_assoc()) {
+			  $name = $team['team_name'];
+			  $city = $team['city'];
+			  $coach = $team['coach'];
+			  $wins = $team['wins'];
+			  $losses = $team['losses'];
+			  $ties = $team['ties'];
 
      ?>
-       <li><?php echo "$name, $city, $coach".
-                      "$wins, $losses, $ties"; ?></li>
+       <li><?php echo "$name, $city, $coach, $wins, $losses, $ties"; ?></li>
     <?php
       }
+	  }
      ?>
-
 
 
     <?php
@@ -64,7 +70,9 @@
                "FROM Player ".
 	       "WHERE player_name = '$user_input' ";
       $player_results = $connection->query($query);
-      while ($player = $player_results->fetch_assoc()) {
+	  if ($player_results->num_rows > 0)
+	  {
+		  while ($player = $player_results->fetch_assoc()) {
         $p_name = $player['player_name'];
 	$num = $player['player_num'];
 
@@ -72,6 +80,7 @@
        <li><?php echo "$p_name, $num"; ?></li>
     <?php
       }
+	  }
      ?>
 
     </ul>
