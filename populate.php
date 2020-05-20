@@ -110,21 +110,6 @@ CREATE TABLE Tightend (
 
 SQL;
 
-//variables when new team is created
-$tname = $_POST["tname"];
-$city = $_POST["city"];
-$coach = $_POST["coach"];
-$wins = $_POST["wins"];
-$losses = $_POST["losses"];
-$ties = $_POST["ties"];
-
-//variables when new player is created
-$pname = $_POST["pname"];
-$num = $_POST["num"];
-$height = $_POST["height"];
-$weight = $_POST["weight"];
-$pos = $_POST["pos"];
-
 // normally only a single query is executed, but batch table creation
 $conn->multi_query($tables)
     or die("Error: ".$conn->error);
@@ -137,8 +122,8 @@ while ($conn->more_results())
 $data = array(
   "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
       "('Chiefs', 'Kansas City', 'Andy Reid', 12, 4, 0), ".
-      "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0), ".
-      "('$tname', '$city', '$coach', '$wins', '$losses', '$ties');",
+      "('49ers', 'San Francisco', 'Kyle Shanahan', 13, 3, 0); ",
+      /*"('$tname', '$city', '$coach', '$wins', '$losses', '$ties');",*/
   "INSERT INTO Position (abbreviation) VALUES ".
       "('QB'), ".
       "('RB'), ".
@@ -146,16 +131,43 @@ $data = array(
       "('TE');",
   "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
       "('Patrick Mahomes', 15, '6-3', 230, 3, 'QB'), ".
-      "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB'), ".
-      "('$pname', '$num', '$height', '$weight', 0, '$pos');",
+      "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB'); ",
+      /*"('$pname', '$num', '$height', '$weight', 0, '$pos');",*/
   "INSERT INTO Quarterback (player_name, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
       "('Patrick Mahomes', 5000, 50, 10, 158.3), ".
       "('Jimmy Garoppolo', 1000, 1, 5, 10);",
   "INSERT INTO Roster (player_name, team_name) VALUES ".
       "('Patrick Mahomes', 'Chiefs'), ".
-      "('Jimmy Garoppolo', '49ers'), ".
-      "('$pname', '$tname');",
+      "('Jimmy Garoppolo', '49ers'); ",
+      /*"('$pname', '$tname');",*/
 );
+
+//variables when new team is created
+if (isset($_POST['tname']))  {
+	$tname = $_POST["tname"];
+	$city = $_POST["city"];
+	$coach = $_POST["coach"];
+	$wins = $_POST["wins"];
+	$losses = $_POST["losses"];
+	$ties = $_POST["ties"];
+	$data = array(
+	  "INSERT INTO Team (team_name, city, coach, wins, losses, ties) VALUES ".
+	    "('$tname', '$city', '$coach', '$wins', '$losses', '$ties'); ",
+	);
+}
+
+//variables when new player is created
+if (isset($_POST['pname']))  {
+	$pname = $_POST["pname"];
+	$num = $_POST["num"];
+	$height = $_POST["height"];
+	$weight = $_POST["weight"];
+	$pos = $_POST["pos"];
+	$data = array(
+	  "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
+	    "('$pname', '$num', '$height', '$weight', 0, '$pos'); ",
+	);
+}
 
 foreach ($data as $query) {
   if (! $conn->query($query))
