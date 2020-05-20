@@ -110,12 +110,20 @@ CREATE TABLE Tightend (
 
 SQL;
 
+//variables when new team is created
 $tname = $_POST["tname"];
 $city = $_POST["city"];
 $coach = $_POST["coach"];
 $wins = $_POST["wins"];
 $losses = $_POST["losses"];
 $ties = $_POST["ties"];
+
+//variables when new player is created
+$pname = $_POST["pname"];
+$num = $_POST["num"];
+$height = $_POST["height"];
+$weight = $_POST["weight"];
+$pos = $_POST["pos"];
 
 // normally only a single query is executed, but batch table creation
 $conn->multi_query($tables)
@@ -136,8 +144,8 @@ $data = array(
       "('RB');",
   "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ".
       "('Patrick Mahomes', 15, '6-3', 230, 3, 'QB'), ".
-      "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB');",
-
+      "('Jimmy Garoppolo', 10, '6-2', 225, 5, 'QB'), ".
+      "('$pname', '$num', '$height', '$weight', 0, '$pos');",
   "INSERT INTO Quarterback (player_name, pass_yards, pass_tds, interceptions, qb_rating) VALUES ".
       "('Patrick Mahomes', 5000, 50, 10, 158.3), ".
       "('Jimmy Garoppolo', 1000, 1, 5, 10);",

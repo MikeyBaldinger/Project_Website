@@ -31,5 +31,22 @@
 			</div>
     </div>
 
+    <h2>Create a Player</h2>
+
+    <form class="newplayer" id="newplayer" action="populate.php" method="post"
+          onsubmit="return checkForm();">
+      <label for="pname">Player Name</label>
+      <input type="text" name="pname" id="pname" required /><br />
+      <label for="num">Player Number</label>
+      <input type="number" name="num" id="num" min="0" max="99" required /><br />
+      <label for="height">Height (ft-in)</label>
+      <input type="text" name="height" id="height" placeholder="6-3" required /><br />
+      <label for="weight">Weight</label>
+      <input type="number" name="weight" id="weight" required /><br />
+      <label for="pos">Position</label>
+      <input type="text" name="pos" id="pos" placeholder="(QB) or (RB) or (WR) or (TE)" required /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
   </body>
 </html>
