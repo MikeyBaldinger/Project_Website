@@ -1,0 +1,58 @@
+<html>
+
+	<head>
+
+		<link rel="stylesheet" href="nfl.css" />
+
+		<meta charset="utf-8">
+		<title>NFL Skill Players Database</title>
+
+	</head>
+
+	<body>
+
+		<h1><img src="NFL_logo.jpg" height="125" width="125">Skill Players Database</h1>
+
+		<div class="topnav">
+			<a class="active" href="main.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="stats.php">Stats</a>
+			<div class="dropdown">
+				<button class="dbutton" name="dbutton">Create
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dcontent">
+					<a href="createPlayer.php">Player</a>
+					<a href="createTeam.php">Team</a>
+				</div>
+			</div>
+		</div>
+
+		<h2>This NFL Skill Players Database provides statistics for NFL skill players for the 2019-2020 season.</h2>
+
+		<div id="box1">
+			<form action="stats.php" method="post">
+				<input type="text" id="input" name="input" placeholder="(Patrick Mahomes) or (Chiefs)  or (QB)" size="34">
+				<input type="submit" value="Search">
+			</form>
+		</div>
+
+		<h3>How to search the database:</h3>
+
+		<ol>
+		<li>Enter your inquiry in the text box.</li>
+		<li>Press the Search button.</li>
+		</ol>
+
+		<h3>Results:</h3>
+
+		<ul>
+			<li>If a player name is entered, the player's statistics will be displayed.</li>
+			<li>If a team name is entered, the statistics for every player on the team will be displayed.</li>
+			<li>If a position (QB, RB, WR, TE) is entered, the statistics for every player in that position will be displayed.</li>
+			<li>If 'roster' is entered, all players and their teams will be displayed.</li>
+		</ul>
+
+	</body>
+
+</html>
