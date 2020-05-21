@@ -8,24 +8,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+	<script defer src="createSuccess.js"></script>
+	
+	<body>
+
 	<h2>Create a QB</h2>
 
-    <form class="newQB" id="newQB" action="createQB.php" method="post" onsubmit="main.html">
+    <form class="newQB" id="newQB" action="createQB.php" method="post" onsubmit="return createSuccess();">
 		<label for="playerName">Player Name</label>
 		<input type="text" name="playerName" id="playerName" required /><br />
 		<label for="passYards">Passing Yards</label>
 		<input type="number" name="passYards" id="passYards" required /><br />
 		<label for="passTds">Passing Touchdowns</label>
-		<input type="number" name="passTds" id="passTds" required /><br />
+		<input type="number" name="passTds" id="passTds" min="0" required /><br />
 		<label for="interceptions">Interceptions</label>
-		<input type="number" name="interceptions" id="interceptions" required /><br />
+		<input type="number" name="interceptions" id="interceptions" min="0" required /><br />
 		<label for="qbRating">QB Rating</label>
-		<input type="number" name="qbRating" id="qbRating" placeholder="100.00" step="0.01" required /><br />
+		<input type="number" name="qbRating" id="qbRating" placeholder="100.00" step="0.01" min="0" max="158.3" required /><br />
 		<br>
 		
 		<input type="submit" value="Submit" />
 	</form>
 
+	</body>
+	
 </html>
 
 <?php
@@ -43,6 +49,7 @@ if (isset($_POST['passYards']))  {
     			echo "Error: ".$conn->error."\n";
   		}
 	}
+	header("Location: main.html");
 }
 	
 ?>
