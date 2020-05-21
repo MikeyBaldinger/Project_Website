@@ -25,7 +25,7 @@
 		<input type="number" name="carries" id="carries" min="0" required /><br />
 		<br>
 
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Create" />
     </form>
 
 </html>
