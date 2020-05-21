@@ -11,6 +11,9 @@
 		<meta charset="utf-8">
 		<title>createTeam</title>
 		<link rel="stylesheet" href="nfl.css" />
+		
+		<script defer src="teamCreateSuccess.js"></script>
+
 	</head>
 	<body>
 		
@@ -33,7 +36,7 @@
 
 		<h2>Create a Team</h2>
 
-		<form class="newteam" id="newteam" action="createTeam.php" method="post" onsubmit="main.html">
+		<form class="newteam" id="newteam" action="createTeam.php" method="post" onsubmit="return teamCreateSuccess();">
 			<label for="tname">Team Name</label>
 			<input type="text" name="tname" id="tname" required /><br />
 			<label for="city">Hometown</label>
@@ -68,6 +71,7 @@ if (isset($_POST['tname']))  {
     			echo "Error: ".$conn->error."\n";
   		}
 	}
+	header("Location: main.html");
 }
 
 $conn->close();
