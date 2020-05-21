@@ -8,19 +8,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+	<script defer src="createSuccess.js"></script>
+
     <h2>Create a RB</h2>
 
-    <form class="newRB" id="newRB" action="createRB.php" method="post" onsubmit="main.html">
+    <form class="newRB" id="newRB" action="createRB.php" method="post" onsubmit="return createSuccess();">
 		<label for="playerName">Player Name</label>
 		<input type="text" name="playerName" id="playerName" required /><br />
 		<label for="rushYards">Rushing Yards</label>
 		<input type="number" name="rushYards" id="rushYards" required /><br />
 		<label for="tds">Touchdowns</label>
-		<input type="number" name="tds" id="tds" required /><br />
+		<input type="number" name="tds" id="tds" min="0" required /><br />
 		<label for="fumbles">Fumbles</label>
-		<input type="number" name="fumbles" id="fumbles" required /><br />
+		<input type="number" name="fumbles" id="fumbles" min="0" required /><br />
 		<label for="carries">Carries</label>
-		<input type="number" name="carries" id="carries" required /><br />
+		<input type="number" name="carries" id="carries" min="0" required /><br />
 		<br>
 
 		<input type="submit" value="Submit" />
@@ -43,6 +45,7 @@ if (isset($_POST['rushYards']))  {
     			echo "Error: ".$conn->error."\n";
   		}
 	}
+	header("Location: main.html");
 }
 	
 ?>
