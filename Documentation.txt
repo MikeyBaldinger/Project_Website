@@ -8,6 +8,9 @@ Documentation
 	- We learned how to create a placeholder in a text box.  This allowed us to create a placeholder in our search text box.
 	- We learned how to create an outline in CSS.  This allowed us to make a header around our website's title.
 	- We learned how to utilize box-sizing in CSS.  This allowed us to create a box around our website's search area.
+	- We learned how to utillize include in PHP.  This allowed us to redirect to the create QB, RB, WR, and TE page.
+	- We learned how to utilize strcasecmp in PHP.  This allowed us to compare strings on our website with case-insensitivity.
+	- We learned how to utilize alert in PHP.  This allowed us to alert the user when a new player or team is created successfully.
 	
 2. https://www.stickpng.com/img/icons-logos-emojis/iconic-brands/nfl-logo
 
@@ -25,6 +28,24 @@ Documentation
 
 	- I recall how to link a CSS file to an HTML file.  We used this to connect nfl.css to main.html.
 	- I recalled how to embed an image in HTML.  We used this to embed NFL_logo.jpg in main.html.
-	- I recalled how to create an an HTML form.  We used this to create our database search form.
+	- I recalled how to create an HTML form.  We used this to create our database search form.
 	- I recalled how to format a CSS file.  We used this to create nfl.css.
+	- I recalled how to use onsubmit and redirect to a JavaScript file in an html form.  This allowed us to redirect our wesbite to main.html after a new team or player is created.
+	- I recalled how to embed a JavaScript file in another file.  This allowed us to embed the JavaScript files for redirecting to main.html after a new team or player is created.
+
+6. https://www.php.net/manual/en/language.operators.comparison.php
+
+	- We used this website to learn how to compare strings in PHP.  This allowed us to determine the position of a new player.
 	
+7. stackoverflow.com
+
+	- We used this website to learn how to solve the error, "Column count doesn't match value count at row 1."  This allowed us to fix the create QB, RB, WR, and TE page.
+	- We learned how to utilize step in an html form.  This allowed us to input a float value for QB rating when a new QB is created.
+	
+8. https://community.talend.com/t5/Design-and-Development/Cannot-add-or-update-a-child-row-a-foreign-key-constraint-fails/td-p/207805
+
+	- We used this source to learn how to solve the error, "Cannot add or update a child row: a foreign key constraint fails."  This allowed us to fix the create QB, RB, WR, and TE page.
+	
+9. https://my.hostmonster.com/hosting/help/241
+
+	- We used this source to learn how to use header in PHP.  This allowed us to redirect to main.html after a new team or player is created.
