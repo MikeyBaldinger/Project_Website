@@ -46,7 +46,14 @@
       <label for="weight">Weight</label>
       <input type="number" name="weight" id="weight" required /><br />
       <label for="pos">Position</label>
-      <input type="text" name="pos" id="pos" placeholder="(QB) or (RB) or (WR) or (TE)" required /><br />
+      <input type="radio" name="pos" value="QB" required>QB
+      <input type="radio" name="pos" value="RB">RB
+      <input type="radio" name="pos" value="WR">WR
+      <input type="radio" name="pos" value="TE">TE
+      <br><br>
+
+
+
       <input type="submit" value="Submit" />
     </form>
 
