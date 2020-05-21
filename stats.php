@@ -63,8 +63,33 @@
 	   <?php
       }
 	  }
-     ?>
+	  ?>
 
+<?php
+
+      $team_input = $_POST["input"];
+
+		if ($team_input == "roster" || $team_input == "Roster") {
+      $roster_query = "SELECT * ".
+               "FROM Roster ";
+      $roster_results = $connection->query($roster_query);
+	  if ($roster_results->num_rows > 0)
+	  {
+		  while ($roster = $roster_results->fetch_assoc()) {
+			 
+			  $player_name = $roster['player_name'];
+			  $team_name = $roster['team_name'];
+
+     ?>   
+	   --------------------------------------------------<br>
+	   Name: <?php echo "$player_name"; ?> <br>
+	   Team: <?php echo "$team_name"; ?> <br>
+	   <?php
+			  
+      }
+	  }
+		}
+     ?>
 
     <?php
 
