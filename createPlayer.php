@@ -43,7 +43,7 @@
 			<label for="height">Height (ft-in)</label>
 			<input type="text" name="height" id="height" placeholder="6-3" required /><br />
 			<label for="weight">Weight</label>
-			<input type="number" name="weight" id="weight" required /><br />
+			<input type="number" name="weight" id="weight" min="1" required /><br />
 			<label for="pos">Position</label>
 			<input type="radio" name="pos" value="QB" required>QB
 			<input type="radio" name="pos" value="RB">RB
@@ -52,8 +52,11 @@
 			<br>
 			<br>
 
-			<input type="submit" value="Submit" />
+			<input type="submit" value="Create" />
 		</form>
+		
+		<p>Note: To create a player for a team that doesn't exist in the database,
+			   the new team must be created first.</p>
 
 	</body>
 </html>
@@ -63,6 +66,7 @@
 //variables when new player is created
 if (isset($_POST['pname']))  {
 	$pname = $_POST["pname"];
+	$team = $_POST["tname"];
 	$num = $_POST["num"];
 	$height = $_POST["height"];
 	$weight = $_POST["weight"];
@@ -70,6 +74,12 @@ if (isset($_POST['pname']))  {
 	$player_insert = array( "INSERT INTO Player (player_name, player_num, height, weight, yrs_pro, abbreviation) VALUES ('$pname', '$num', '$height', '$weight', 0, '$pos'); ",);
 	foreach ($player_insert as $query) {
   		if (! $conn->query($query)) {
+    			echo "Error: ".$conn->error."\n";
+  		}
+	}
+	$roster_insert = array("INSERT INTO Roster (player_name, team_name) VALUES ('$pname', '$team'); ",);
+	foreach ($roster_insert as $teamquery) {
+  		if (! $conn->query($teamquery)) {
     			echo "Error: ".$conn->error."\n";
   		}
 	}
