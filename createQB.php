@@ -27,7 +27,7 @@
 		<input type="number" name="qbRating" id="qbRating" placeholder="100.00" step="0.01" min="0" max="158.3" required /><br />
 		<br>
 		
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Create" />
 	</form>
 
 	</body>
