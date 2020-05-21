@@ -23,7 +23,7 @@
 		<input type="number" name="receptions" id="receptions" min="0" required /><br />
 		<br>
 
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Create" />
     </form>
 
 </html>
