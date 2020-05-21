@@ -1,0 +1,121 @@
+h1 {
+	font-family: impact, charcoal, sans-serif;
+	color: crimson;
+	font-size: 75px;
+	outline: 4px solid darkblue;
+}
+
+/* Navbar container */
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+	font-family: Arial;
+}
+
+/* Links inside the navbar */
+.topnav a {
+	float: left;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+	background-color: crimson;
+	color: white;
+}
+
+/* The dropdown container */
+.dropdown {
+	float: left;
+	overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dbutton {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit; /* Important for vertical align on mobile phones */
+	margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.topnav a:hover, .dropdown:hover .dbutton {
+	background-color: grey;
+}
+
+/* Dropdown content (hidden by default) */
+.dcontent {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dcontent a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dcontent a:hover {
+	background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dcontent {
+	display: block;
+}
+
+h2 {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 28px;
+}
+
+h3 {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 22px;
+}
+
+p {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 24px;
+}
+
+ul {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
+}
+
+ol {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
+}
+
+form {
+	font-family: impact, charcoal, sans-serif;
+	font-size: 18px;
+	box-sizing: border-box;
+}
+
+#box1 {
+	box-sizing: border-box;
+	width: 475px;
+	height: 50px;
+	padding: 5px;
+	border: 5px solid black;
+}
