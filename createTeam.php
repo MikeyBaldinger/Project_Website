@@ -49,7 +49,7 @@
 			<input type="number" name="losses" id="losses" min="0" max="16" required /><br />
 			<label for="ties">Draws</label>
 			<input type="number" name="ties" id="ties" min="0" max="16" required /><br />
-			<input type="submit" value="Submit" />
+			<input type="submit" value="Create" />
 		</form>
 
 	</body>
